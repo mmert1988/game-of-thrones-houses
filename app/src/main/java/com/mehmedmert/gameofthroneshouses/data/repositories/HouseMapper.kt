@@ -9,7 +9,8 @@ object HouseMapper {
     }
 
     fun map(houseApiModel: HouseApiModel): House = House(
-        url = houseApiModel.url,
+        // we need this small workaround in order to extract the house id from the url
+        id = houseApiModel.url.substringAfterLast("/"),
         name = houseApiModel.name,
         region = houseApiModel.region,
         words = houseApiModel.words,

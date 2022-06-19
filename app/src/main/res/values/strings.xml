@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Game of Thrones Houses</string>
+    <string name="region_label">Region:</string>
+    <string name="words_label">Words:</string>
 </resources>
