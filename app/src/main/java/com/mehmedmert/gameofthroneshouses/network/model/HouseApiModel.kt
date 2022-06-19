@@ -1,6 +1,6 @@
 package com.mehmedmert.gameofthroneshouses.network.model
 
-data class House(
+data class HouseApiModel(
     val url: String,
     val name: String,
     val region: String,
