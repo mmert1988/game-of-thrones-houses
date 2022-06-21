@@ -9,9 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.HORIZONTAL
 import com.mehmedmert.gameofthroneshouses.databinding.FragmentHousesBinding
+import com.mehmedmert.gameofthroneshouses.ui.common.navigate
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -47,6 +49,10 @@ class HousesFragment : Fragment() {
                     adapter.submitList(it.houses)
                 }
             }
+        }
+
+        housesViewModel.navigationEvent.observe(viewLifecycleOwner) { navigationEvent ->
+            findNavController().navigate(navigationEvent)
         }
     }
 

@@ -1,10 +1,13 @@
 package com.mehmedmert.gameofthroneshouses.ui.houses
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mehmedmert.gameofthroneshouses.data.model.House
 import com.mehmedmert.gameofthroneshouses.data.model.NetworkResult
 import com.mehmedmert.gameofthroneshouses.data.repositories.HousesRepository
+import com.mehmedmert.gameofthroneshouses.ui.common.NavigationEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,6 +24,9 @@ class HousesViewModel @Inject constructor(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(HousesUiState())
     val uiState: StateFlow<HousesUiState> = _uiState.asStateFlow()
+
+    private val _navigationEvent = MutableLiveData<NavigationEvent>()
+    val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
 
     private var fetchJob: Job? = null
 
@@ -43,6 +49,7 @@ class HousesViewModel @Inject constructor(
     }
 
     fun onHouseClicked(house: House) {
-        // todo
+        val navDirections = HousesFragmentDirections.toHouseDetailsFragment(house.id)
+        _navigationEvent.postValue(NavigationEvent.ToNavDirections(navDirections))
     }
 }
