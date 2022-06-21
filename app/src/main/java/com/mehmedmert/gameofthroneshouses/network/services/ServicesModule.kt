@@ -29,7 +29,7 @@ object ServicesModule {
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("https://anapioficeandfire.com/api")
+        .baseUrl("https://anapioficeandfire.com/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()

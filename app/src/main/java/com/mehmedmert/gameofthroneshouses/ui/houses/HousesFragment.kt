@@ -24,8 +24,6 @@ class HousesFragment : Fragment() {
 
     private val housesViewModel: HousesViewModel by viewModels()
 
-    @Inject lateinit var adapter: HousesAdapter
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,8 +35,11 @@ class HousesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val adapter = HousesAdapter(housesViewModel)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(DividerItemDecoration(view.context, HORIZONTAL))
+
+        housesViewModel.fetchHouses()
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

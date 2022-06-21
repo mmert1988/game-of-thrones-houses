@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mehmedmert.gameofthroneshouses.data.model.House
 import com.mehmedmert.gameofthroneshouses.databinding.ItemHouseBinding
-import javax.inject.Inject
 
-class HousesAdapter @Inject constructor(
+class HousesAdapter(
     private val viewModel: HousesViewModel
 ) : ListAdapter<House, HousesAdapter.HouseViewHolder>(HousesDiff) {
     override fun onCreateViewHolder(
