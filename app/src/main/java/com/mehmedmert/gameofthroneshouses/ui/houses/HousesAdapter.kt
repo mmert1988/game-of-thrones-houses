@@ -15,8 +15,8 @@ class HousesAdapter(
         parent: ViewGroup,
         viewType: Int
     ): HousesAdapter.HouseViewHolder {
-        val itemView = ItemHouseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HouseViewHolder(itemView)
+        val binding = ItemHouseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HouseViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: HousesAdapter.HouseViewHolder, position: Int) {

@@ -2,4 +2,6 @@
     <string name="app_name">Game of Thrones Houses</string>
     <string name="region_label">Region:</string>
     <string name="words_label">Words:</string>
+    <string name="titles_label">Titles:</string>
+    <string name="seats_label">Seats:</string>
 </resources>
