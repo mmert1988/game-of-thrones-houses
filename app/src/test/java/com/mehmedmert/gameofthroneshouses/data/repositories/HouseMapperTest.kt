@@ -151,7 +151,7 @@ class HouseMapperTest {
         val house = HouseMapper.map(houseApiModel)
 
         // then
-        assertEquals("https://anapioficeandfire.com/api/houses/378", house.url)
+        assertEquals("378", house.id)
         assertEquals("House Targaryen of King's Landing", house.name)
         assertEquals("The Crownlands", house.region)
         assertEquals("Fire and Blood", house.words)
